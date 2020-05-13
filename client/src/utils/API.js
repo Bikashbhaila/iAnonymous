@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/posts");
   },
   // Gets the post with the given id
-  getPost: function(id) {
+  getPosts: function(id) {
     return axios.get("/api/posts/" + id);
   },
   // Deletes the post with the given id
