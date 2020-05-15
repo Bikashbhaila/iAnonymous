@@ -81,7 +81,7 @@ function Posts() {
                 disabled={!(formObject.author && formObject.title)}
                 onClick={handleFormSubmit}
               >
-                Submit Book
+                Upload Post
               </FormBtn>
             </form>
           </Col>
