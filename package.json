@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {
+  "engines": {
+  "node": "12.13.x"
+  },
+    "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || node app.js",
     "start:prod": "node app.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+  
+    "heroku-postbuild": "npm start"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +27,7 @@
     "mongoose": "^5.9.15",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "if-env": "^1.0.4"
   }
 }
