@@ -14,6 +14,9 @@ if (process.env.NODE_ENV === "production") {
   const UserRouter = require('./routes/User');
   app.use('/user', UserRouter);
 
+  var distDir = __dirname + "/dist/";
+ app.use(express.static(distDir));
+
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mernauth', {useNewUrlParser : true, useUnifiedTopology: true },()=>{
     console.log('successfully connected to database');
 });
