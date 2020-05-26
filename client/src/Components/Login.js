@@ -5,7 +5,7 @@ import {AuthContext} from '../Context/AuthContext';
 
 const Login = props=>{
     const [user,setUser] = useState({username:"", password : ""});
-    const [message,setMessage] = useState(null);
+    const [message,setMessage] = useState();
     const authContext = useContext(AuthContext);
 
     const onChange = e =>{

@@ -6,13 +6,10 @@ export default {
             headers : {
                 'Content-Type' : 'application/json'
             }
-        }).then(res => {
-            if(res.status !== 401)
-                return res.json().then(data => data);
-            else
-                return { isAuthenticated : false, user : {username : "",role : "" }};
-         })
+        }).then(res => res.json())
+            .then(data => data);
     },
+            
     
     register : user =>{
         return fetch('/user/register',{

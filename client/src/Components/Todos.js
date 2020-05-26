@@ -67,7 +67,7 @@ const Todos = props=>{
                         className="form-control"
                         placeholder="Please Enter Todo"/>
 
-                <button ClassName="btn btn-lg btn-primary btn-block"
+                <button className="btn btn-lg btn-primary btn-block"
                 type="submit">Submit</button>
             </form>
             {message ? <Message message={message}/> : null}
