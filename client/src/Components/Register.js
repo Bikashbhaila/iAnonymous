@@ -64,7 +64,7 @@ const Register = props=>{
                 <button className="btn btn-lg btn-primary btn-block"
                     type="submit">Register</button>    
             </form>
-            {message ? <Message message={message}/> : null}
+            {message ? <Message message={message}/> : ""}
         </div>
     )
     

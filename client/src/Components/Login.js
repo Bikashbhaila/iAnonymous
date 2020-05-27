@@ -44,7 +44,7 @@ const Login = props=>{
                 <button className="btn btn-lg btn-primary btn-block"
                     type="submit">Log in</button>    
             </form>
-            {message ? <Message message={message}/> : null}
+            {message ? <Message message={message}/> : ""}
         </div>
     )
     

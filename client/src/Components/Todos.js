@@ -8,21 +8,21 @@ import Message from './Message';
 const Todos = props=>{
     const [todo,setTodo] = useState({name : ""});
     const [todos,setTodos] = useState([]);
-    const [message,setMessage] = useState(null);
+    const [message,setMessage] = useState("");
     const authContext = useContext(AuthContext);
 
     useEffect(()=>{
         TodoService.getTodos().then(data =>{
             setTodos(data.todos);
         });
-    },[]);
+    },[todos]);
 
     const onSubmit = e =>{
         e.preventDefault();
         TodoService.postTodo(todo).then(data =>{
                 const { message } = data;
                 resetForm();
-                if(!message.msgError){
+                if(message.msgError){
                     TodoService.getTodos().then(getData =>{
                         setTodos(getData.todos)
                         setMessage(Message);
@@ -70,7 +70,7 @@ const Todos = props=>{
                 <button className="btn btn-lg btn-primary btn-block"
                 type="submit">Submit</button>
             </form>
-            {message ? <Message message={message}/> : null}
+            {message ? <Message message={message}/> : ""}
         </div>
     )
 }
