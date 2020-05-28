@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
   var distDir = __dirname + "/dist/";
  app.use(express.static(distDir));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mernauth', {useNewUrlParser : true, useUnifiedTopology: true },()=>{
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://electric_boogaloo:electric_boogaloo1@ds253388.mlab.com:53388/heroku_r3sqlw12', {useNewUrlParser : true, useUnifiedTopology: true },()=>{
     console.log('successfully connected to database');
 });
 
