@@ -63,7 +63,7 @@ userRouter.post('/todo',passport.authenticate('jwt',{session : false}),(req,res)
                    if(err)
                         res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
                     else
-                        res.status(200).json({message : {msgBody : 'Successfully created todo', msgError : false}})    
+                        res.status(200).json({message : {msgBody : 'Successfully Posted to the Board', msgError : false}})    
                 })
             }
 
@@ -81,7 +81,17 @@ userRouter.get('/todos',passport.authenticate('jwt',{session : false}),(req,res)
 
     });
 });
+// Get all Todos
+userRouter.get('/allTodos',(req,res)=>{
+    Todo.find().exec((err,document)=>{
+        console.log(document);
+        if (err)
+            res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
+        else
+        res.status(200).json({todos : document, authenticated : true});
 
+    });
+});
 //Route to log into admin panel
 userRouter.get('/admin',passport.authenticate('jwt',{session : false}),(req,res)=>{
     if(req.user.role === 'admin') {

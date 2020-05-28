@@ -50,6 +50,21 @@ const Todos = props=>{
 
     return(
         <div>
+            <br></br>
+            <form onSubmit={onSubmit}>
+                <label htmlFor="todo">Enter your Post</label>
+                <input type="text" 
+                        name="todo"
+                        value={todo.name}
+                        onChange={onChange}
+                        className="form-control"
+                        placeholder="What is on your Mind?"/>
+
+                <button className="btn btn-lg btn-primary btn-block"
+                type="submit">Submit</button>
+            </form>
+            {message ? <Message message={message}/> : ""}
+            <br></br>
             <ul className="list-group">
                 {
                     todos.map(todo =>{
@@ -57,20 +72,6 @@ const Todos = props=>{
                     })
                 }
             </ul>
-            <br/>
-            <form onSubmit={onSubmit}>
-                <label htmlFor="todo">Enter Todo</label>
-                <input type="text" 
-                        name="todo"
-                        value={todo.name}
-                        onChange={onChange}
-                        className="form-control"
-                        placeholder="Please Enter Todo"/>
-
-                <button className="btn btn-lg btn-primary btn-block"
-                type="submit">Submit</button>
-            </form>
-            {message ? <Message message={message}/> : ""}
         </div>
     )
 }

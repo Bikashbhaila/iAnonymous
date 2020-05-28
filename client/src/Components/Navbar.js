@@ -48,7 +48,7 @@ const Navbar = props =>{
                     </Link>
                     <Link to="/todos">
                         <li className="nav-item nav-link">
-                            Todos
+                            Posts
                         </li>
                     </Link>
                     {
@@ -68,7 +68,7 @@ const Navbar = props =>{
         return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to="/">
-                    <div className="navbar-brand">iAnonymous</div>
+                    <div className="navbar-brand"><img src="./IA-logo.png" alt="Website Logo" width="50px" ></img></div>
             </Link>
             <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav mr-auto">
