@@ -53,7 +53,11 @@ userRouter.get('/logout',passport.authenticate('jwt',{session : false}),(req,res
 
 //Route to create todo
 userRouter.post('/todo',passport.authenticate('jwt',{session : false}),(req,res)=>{
-    const todo = new Todo(req.body);
+
+    var today = new Date();
+    var date = (today.getMonth()+1)+'-'+(today.getDate())+'-'+today.getFullYear()+'-'+today.getHours()+':'+today.getMinutes()+'.'+today.getSeconds();
+    const post=date+": "+req.body.name;
+    const todo = new Todo({name:post});
     todo.save(err=>{
         if(err)
         res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
@@ -84,7 +88,7 @@ userRouter.get('/todos',passport.authenticate('jwt',{session : false}),(req,res)
 // Get all Todos
 userRouter.get('/allTodos',(req,res)=>{
     Todo.find().exec((err,document)=>{
-        console.log(document);
+        
         if (err)
             res.status(500).json({message : {msgBody : "Error has occured", msgError: true}});
         else
